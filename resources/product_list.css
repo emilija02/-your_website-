@@ -26,22 +26,33 @@ header h2 {
     margin-right: auto;
     padding-left: 20px;
     padding-top: 20px;
+    
 }
 
 header p {
+    
     margin-left: 20px;
     padding: 5px 10px;
     border-radius: 5px;
     padding-top: 20px;
+    
+    
 }
 
 #add-product-btn{
-    
+    border-radius: 0px;
+    border: 2px solid black;
+    width: 90px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    color: black;
 }
 
 #delete-product-btn {
-    
-    border-radius: 5px;
+    border-radius: 0px;
     border: 2px solid black;
     width: 90px;
     height: 40px;
