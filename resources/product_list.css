@@ -35,29 +35,93 @@ header p {
     padding: 5px 10px;
     border-radius: 5px;
     padding-top: 20px;
-    
-    
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-bottom: 20px;
 }
+
 
 #add-product-btn{
     border-radius: 0px;
     border: 2px solid black;
     width: 90px;
-    height: 40px;
+    height: 43px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-right: 20px;
     color: black;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #delete-product-btn {
     border-radius: 0px;
     border: 2px solid black;
-    width: 90px;
-    height: 40px;
+    width: 150px;
+    height: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-right: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#add-product-btn:hover,
+#delete-product-btn:hover {
+  background-color: black;
+  color: white;
+  transition: 2s;
+}
+
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    
+}
+
+.product-box {
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+    padding-top: 20px;
+}
+
+.delete-checkbox {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+
+p {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
 }
