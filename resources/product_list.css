@@ -119,6 +119,9 @@ body {
     cursor: pointer;
 }
 
+.delete-checkbox input[type="checkbox"]:checked {
+    border: 2px solid green;
+} 
 
 p {
     margin-bottom: 5px;

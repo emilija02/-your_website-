@@ -17,7 +17,7 @@
 <body>
     <div class="product-container">
      <div class="product-box">
-        <div class="delete-checkbox"></div>
+        <input type="checkbox" class="delete-checkbox">
         <p>JVC200123</p>
         <p>Acme DISC</p>
         <p>1.00 $</p>
@@ -26,8 +26,19 @@
     </div>
 
     <div class="product-container">
-        <div class="product-box">
-           <div class="delete-checkbox"></div>
+        <div  class="product-box">
+           <input type="checkbox" class="delete-checkbox">
+           <p>JVC200123</p>
+           <p>Acme DISC</p>
+           <p>1.00 $</p>
+           <p>Size: 700 MB</p>
+         </div>
+    </div>
+
+
+    <div class="product-container">
+        <div  class="product-box">
+           <input type="checkbox" class="delete-checkbox">
            <p>JVC200123</p>
            <p>Acme DISC</p>
            <p>1.00 $</p>
@@ -38,18 +49,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
-           <p>JVC200123</p>
-           <p>Acme DISC</p>
-           <p>1.00 $</p>
-           <p>Size: 700 MB</p>
-         </div>
-    </div>
-
-
-    <div class="product-container">
-        <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>JVC200123</p>
            <p>Acme DISC</p>
            <p>1.00 $</p>
@@ -59,7 +59,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>GGWP0007</p>
            <p>War and Peace</p>
            <p>20.00 $</p>
@@ -70,7 +70,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>GGWP0007</p>
            <p>War and Peace</p>
            <p>20.00 $</p>
@@ -81,7 +81,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>GGWP0007</p>
            <p>War and Peace</p>
            <p>20.00 $</p>
@@ -92,7 +92,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>GGWP0007</p>
            <p>War and Peace</p>
            <p>20.00 $</p>
@@ -104,7 +104,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>TR120555</p>
            <p>Chair</p>
            <p>40.00 $</p>
@@ -116,7 +116,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>TR120555</p>
            <p>Chair</p>
            <p>40.00 $</p>
@@ -127,7 +127,7 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>TR120555</p>
            <p>Chair</p>
            <p>40.00 $</p>
@@ -139,13 +139,25 @@
 
     <div class="product-container">
         <div class="product-box">
-           <div class="delete-checkbox"></div>
+           <input type="checkbox" class="delete-checkbox">
            <p>TR120555</p>
            <p>Chair</p>
            <p>40.00 $</p>
            <p>Dimension: 24x45x15</p>
          </div>
     </div>
+
+<script>
+    const deleteProductBtn = document.querySelector("#delete-product-btn");
+
+    deleteProductBtn.addEventListener("click", () => {
+      const checkedCheckboxes = document.querySelectorAll(".delete-checkbox:checked");
+      checkedCheckboxes.forEach((checkbox) => {
+        checkbox.closest(".product-container").remove();
+      });
+    });
+</script>
+
 
 </body>
 <footer>

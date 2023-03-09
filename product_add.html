@@ -4,70 +4,82 @@
 	<title>Add Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="./resources/product_list.js"></script>
-    <link rel="stylesheet" href="./resources/product_add.php">
+	<link rel="stylesheet" type="text/css" href="./resources/product_add.css">
+  
 </head>
 <body>
-	<form id="product_form" method="post">
-        <div>
-          <label for="sku">SKU:</label>
-          <input type="text" id="sku" name="sku" required>
-        </div>
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="price">Price:</label>
-          <input type="number" id="price" name="price" min="0" step="0.01" required>
-        </div>
-        <div>
-          <label for="productType">Product Type:</label>
-          <select id="productType" name="productType" required>
-            <option value="">Select Product Type</option>
-            <option value="dvd">DVD</option>
-            <option value="book">Book</option>
-            <option value="furniture">Furniture</option>
-          </select>
-        </div>
-        <div id="productTypeSpecific">
-          <!-- Fields for DVD -->
-          <div id="sizeContainer">
-            <label for="size">Size (in MB):</label>
-            <input type="number" id="size" name="size" min="0" required>
-            <span id="sizeDescription" class="attribute-description hidden">Please provide size in MB</span>
-          </div>
-          <!-- Fields for Book -->
-          <div id="weightContainer">
-            <label for="weight">Weight (in Kg):</label>
-            <input type="number" id="weight" name="weight" min="0" required>
-            <span id="weightDescription" class="attribute-description hidden">Please provide weight in Kg</span>
-          </div>
-          <!-- Fields for Furniture -->
-          <div id="dimensionsContainer">
-            <div>
-              <label for="height">Height (in cm):</label>
-              <input type="number" id="height" name="height" min="0" required>
-            </div>
-            <div>
-              <label for="width">Width (in cm):</label>
-              <input type="number" id="width" name="width" min="0" required>
-            </div>
-            <div>
-              <label for="length">Length (in cm):</label>
-              <input type="number" id="length" name="length" min="0" required>
-            </div>
-            <span id="dimensionsDescription" class="attribute-description hidden">Please provide dimensions (HxWxL) in cm</span>
-          </div>
-        </div>
-        <div>
-          <button type="submit" id="saveProduct">Save</button>
-          <button type="button" id="cancelProduct">Cancel</button>
-        </div>
-      </form>
-      
-      <div id="notifications"></div>
+  <form id="product_form">
+    <div>
+      <label for="sku">SKU:</label>
+      <input type="text" id="sku" name="sku" required>
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" required>
+    </div>
+    <div>
+      <label for="productType">Product Type:</label>
+      <select id="productType" name="productType">
+        <option value="">--Please choose a product type--</option>
+        <option value="dvd">DVD</option>
+        <option value="book">Book</option>
+        <option value="furniture">Furniture</option>
+      </select>
+    </div>
+    <div id="size-field" style="display: none;">
+      <label for="size">Size (MB):</label>
+      <input type="number" id="size" name="size">
+    </div>
+    <div id="weight-field" style="display: none;">
+      <label for="weight">Weight (Kg):</label>
+      <input type="number" id="weight" name="weight">
+    </div>
+    <div id="dimensions-field" style="display: none;">
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height">
+      <label for="width">Width (cm):</label>
+      <input type="number" id="width" name="width">
+      <label for="length">Length (cm):</label>
+      <input type="number" id="length" name="length">
+    </div>
+    <div>
+      <button type="submit" id="save-btn">Save</button>
+      <button type="button" id="cancel-btn">Cancel</button>
+    </div>
+  </form>
+  
+
+
+
+  <script>
+    const dvdFields = ['#size-field'];
+    const bookFields = ['#weight-field'];
+    const furnitureFields = ['#dimensions-field'];
+
+    const productTypeSelect = document.querySelector('#productType');
+    const formFields = [document.querySelector('#size-field'), document.querySelector('#weight-field'), document.querySelector('#dimensions-field')];
+
+   productTypeSelect.addEventListener('change', () => {
+    const selectedType = productTypeSelect.value;
+      formFields.forEach(field => {
+       if (field) {
+        if (dvdFields.includes(`#${field.id}`) && selectedType === 'dvd') {
+        field.style.display = 'block';
+       } else if (bookFields.includes(`#${field.id}`) && selectedType === 'book') {
+        field.style.display = 'block';
+       } else if (furnitureFields.includes(`#${field.id}`) && selectedType === 'furniture') {
+        field.style.display = 'block';
+       } else {
+        field.style.display = 'none';
+       }
+      }
+    });
+   });
+
+  </script>
 </body>
 </html>
