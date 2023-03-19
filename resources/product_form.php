@@ -18,11 +18,19 @@ $name = $_POST['name'];
 $price = $_POST['price'];
 $productType = $_POST['productType'];
 $uniqueAttribute = $_POST['uniqueAttribute'];
+$size = $_POST['size'];
+$weight = $_POST['weight'];
+$height = $_POST['height'];
+$width = $_POST['width'];
+$length = $_POST['length'];
+
+
+
 
 
 // Insert the product into the database
-$sql = "INSERT INTO products (sku, name, price, productType, uniqueAttribute)
-VALUES ('$sku', '$name', '$price', '$productType', '$uniqueAttribute' )";
+$sql = "INSERT INTO products (sku, name, price, productType, uniqueAttribute, size, weight, height, width, length)
+VALUES ('$sku', '$name', '$price', '$productType', '$uniqueAttribute', '$size', '$weight', '$height', '$width', '$length' )";
 
 if ($conn->query($sql) === TRUE) {
   echo "Product added successfully";
