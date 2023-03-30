@@ -4,13 +4,19 @@
 	<title>Add Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="./resources/product_add.css">
+	<link rel="stylesheet" href="./resources/product_add.css">
   
   
 </head>
-<body>
+
+<header>
+  <h2 >Product Add</h2>
   
-  <form id="product_form" action="product_form.php" method="POST">
+</header>
+
+<body>
+  <form id="product_form" action="./product_form.php" method="POST">
+    
     <div>
       <label for="sku">SKU:</label>
       <input type="text" id="sku" name="sku" required>
@@ -21,7 +27,7 @@
     </div>
     <div>
       <label for="price">Price:</label>
-      <input type="number" id="price" name="price" required>
+      <input type="number" id="price" name="price" required min="0" />
     </div>
     <div>
       <label for="productType">Product Type:</label>
@@ -34,19 +40,19 @@
     </div>
     <div id="size-field" style="display: none;">
       <label for="size">Size (MB):</label>
-      <input type="number" id="size" name="size">
+      <input type="number" id="size" name="size"  min="0" />
     </div>
     <div id="weight-field" style="display: none;">
       <label for="weight">Weight (Kg):</label>
-      <input type="number" id="weight" name="weight">
+      <input type="number" id="weight" name="weight"  min="0" />
     </div>
     <div id="dimensions-field" style="display: none;">
       <label for="height">Height (cm):</label>
-      <input type="number" id="height" name="height">
+      <input type="number" id="height" name="height"  min="0" />
       <label for="width">Width (cm):</label>
-      <input type="number" id="width" name="width">
+      <input type="number" id="width" name="width"  min="0" />
       <label for="length">Length (cm):</label>
-      <input type="number" id="length" name="length">
+      <input type="number" id="length" name="length"  min="0" />
     </div>
     <div>
       <button type="submit" id="save-btn">Save</button>
@@ -82,6 +88,16 @@
     });
    });
 
+    const saveBtn = document.querySelector("#save-btn");
+    const cancelBtn = document.querySelector("#cancel-btn");
+
+    saveBtn.addEventListener("click", () => {
+  
+    });
+
+    cancelBtn.addEventListener("click", () => {
+  
+    });
   </script>
   
 
