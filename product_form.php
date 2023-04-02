@@ -34,10 +34,10 @@ include './product_add.html';
 
 
 // Inserting the product into the database
-$sql = "INSERT INTO products (sku, name, price, productType, size, weight, height, width, length)
-VALUES ('$sku', '$name', '$price', '$productType', '$size', '$weight', '$height', '$width', '$length' )";
+$stmt = $conn->prepare("INSERT INTO products (sku, name, price, productType, size, weight, height, width, length) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssdssssss", $sku, $name, $price, $productType, $size, $weight, $height, $width, $length);
 
-if ($conn->query($sql) === TRUE) {
+if ($stmt->execute()) {
   echo "Product added successfully";
 } else {
   echo "Error adding product: " . $conn->error;
@@ -46,6 +46,3 @@ if ($conn->query($sql) === TRUE) {
 
 
 $conn->close();
-
-
-?>
